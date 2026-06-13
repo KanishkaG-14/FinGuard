@@ -90,122 +90,680 @@ export default function Landing() {
       </nav>
 
       {/* HERO */}
-      <section className="text-center py-28 px-6">
+<section className="max-w-6xl mx-auto px-6 py-20">
 
-        <h1 className="text-6xl font-bold mb-6">
-          FinGuard
-        </h1>
+  <div className="grid lg:grid-cols-2 gap-16 items-center">
 
-        <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-6">
-          FinGuard is an intelligent fraud detection system that leverages
-          graph-based learning, anomaly detection, and hybrid AI models to
-          identify suspicious financial transactions in real-time.
-        </p>
+    {/* LEFT SIDE */}
+    <div>
 
-        <div className="mb-6">
-          <span className="px-4 py-2 border border-blue-500 rounded-full text-blue-500">
-            ⚡ Advanced AI Security
-          </span>
-        </div>
+      <div className="mb-6">
+        <span className="px-4 py-2 border border-blue-500 rounded-full text-blue-500">
+          ⚡ Advanced AI Security
+        </span>
+      </div>
 
-        <div className="flex flex-wrap justify-center gap-4">
+      <h1 className="text-4xl lg:text-6xl font-extrabold leading-tight mb-6">
+        AI Powered{" "}
+        <span className="text-blue-500">
+          Fraud Detection
+        </span>
+      </h1>
 
-          <a href="#features">
-            <button className="px-6 py-3 bg-blue-500 text-white rounded-lg">
-              Explore Features →
-            </button>
-          </a>
+      <p className="text-gray-600 dark:text-gray-400 text-lg max-w-xl mb-8">
+        Detect suspicious financial transactions using graph neural networks,
+        anomaly detection, and hybrid AI models. Monitor risk in real-time and
+        prevent fraud before it impacts your business.
+      </p>
 
-          <Link to="/docs">
-            <button className="px-6 py-3 border border-blue-500 rounded-lg">
-              Documentation
-            </button>
-          </Link>
+      <div className="flex flex-wrap gap-4 mb-10">
 
-          <button
-            onClick={handleGetStarted}
-            className="px-6 py-3 bg-gray-700 text-white rounded-lg"
-          >
-            Get Started
+        <a href="#features">
+          <button className="px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition">
+            Explore Features →
           </button>
+        </a>
 
-        </div>
-      </section>
+        <Link to="/docs">
+          <button className="px-6 py-3 border border-blue-500 rounded-lg hover:bg-blue-500/10 transition">
+            Documentation
+          </button>
+        </Link>
 
-      {/* FEATURES */}
-      <section id="features" className="py-20 px-10">
+        <button
+          onClick={handleGetStarted}
+          className="px-6 py-3 bg-slate-700 text-white rounded-lg hover:bg-slate-800 transition"
+        >
+          Get Started
+        </button>
 
-        <h2 className="text-4xl font-bold text-center mb-12">
-          Core Features
-        </h2>
+      </div>
 
-        <div className="grid md:grid-cols-4 gap-8">
-          {features.map((f, i) => (
-            <div
-              key={i}
-              className="p-6 rounded-xl bg-white dark:bg-slate-800 shadow-md"
-            >
+      <div className="flex gap-10">
 
-              <div className="bg-blue-500 text-white p-3 rounded-lg w-fit mb-4">
-                {f.icon}
-              </div>
-
-              <h3 className="text-xl font-semibold mb-2">
-                {f.title}
-              </h3>
-
-              <p className="text-gray-600 dark:text-gray-400 text-sm">
-                {f.desc}
-              </p>
-
-            </div>
-          ))}
+        <div>
+          <h3 className="text-3xl font-bold text-blue-500">
+            99.7%
+          </h3>
+          <p className="text-gray-500">
+            Detection Accuracy
+          </p>
         </div>
 
-      </section>
+        <div>
+          <h3 className="text-3xl font-bold text-blue-500">
+            &lt;1s
+          </h3>
+          <p className="text-gray-500">
+            Response Time
+          </p>
+        </div>
 
-      {/* TECH SPECS */}
-      <section className="py-20 px-6 bg-gray-100 dark:bg-slate-900 transition">
+        <div>
+          <h3 className="text-3xl font-bold text-blue-500">
+            24/7
+          </h3>
+          <p className="text-gray-500">
+            Monitoring
+          </p>
+        </div>
 
-  <h2 className="text-4xl font-bold text-center mb-12">
-    Technical Specifications
-  </h2>
-
-  <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
-
-    {/* LEFT CARD */}
-    <div className="bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-md hover:shadow-[0_0_25px_#3b82f6] transition">
-
-      <h3 className="text-lg font-semibold mb-4 text-blue-500">
-        Architecture Enhancements
-      </h3>
-
-      <ul className="space-y-3 text-gray-600 dark:text-gray-300">
-        <li>• Graph Neural Network Modeling</li>
-        <li>• Multi-scale feature extraction</li>
-        <li>• Attention-based learning</li>
-        <li>• Optimized computation pipeline</li>
-      </ul>
+      </div>
 
     </div>
 
-    {/* RIGHT CARD */}
-    <div className="bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-md hover:shadow-[0_0_25px_#3b82f6] transition">
+    {/* RIGHT SIDE */}
+    {/* RIGHT SIDE */}
+{/* RIGHT SIDE */}
+<div className="flex justify-center">
 
-      <h3 className="text-lg font-semibold mb-4 text-blue-500">
-        Performance Metrics
-      </h3>
+  <div
+    className="
+      relative
+      bg-white
+      dark:bg-slate-800
+      rounded-3xl
+      p-8
+      shadow-xl
+      border
+      border-blue-500/10
+      hover:shadow-[0_0_30px_#3b82f6]
+      hover:-translate-y-1
+      transition-all duration-500
+      w-full
+      max-w-lg
+    "
+  >
 
-      <ul className="space-y-3 text-gray-600 dark:text-gray-300">
-        <li>• 99.7% detection accuracy</li>
-        <li>• Real-time fraud alerts</li>
-        <li>• High recall rate</li>
-        <li>• Reduced processing latency</li>
-      </ul>
+    <h3 className="text-xl font-bold text-center mb-2">
+      Heterogeneous Graph Network
+    </h3>
+
+    <p className="text-center text-sm text-gray-500 mb-6">
+      Multi-entity fraud detection using graph learning
+    </p>
+
+    <svg
+      viewBox="0 0 500 350"
+      className="w-full h-[320px]"
+    >
+
+      {/* GLOW FILTER */}
+      <defs>
+        <filter id="glow">
+          <feGaussianBlur
+            stdDeviation="4"
+            result="coloredBlur"
+          />
+          <feMerge>
+            <feMergeNode in="coloredBlur" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+      </defs>
+
+      {/* CONNECTION 1 */}
+      <line
+        x1="150"
+        y1="80"
+        x2="250"
+        y2="170"
+        stroke="#3b82f6"
+        strokeWidth="3"
+        strokeDasharray="10"
+      >
+        <animate
+          attributeName="stroke-dashoffset"
+          from="100"
+          to="0"
+          dur="2s"
+          repeatCount="indefinite"
+        />
+      </line>
+
+      {/* CONNECTION 2 */}
+      <line
+        x1="350"
+        y1="80"
+        x2="250"
+        y2="170"
+        stroke="#3b82f6"
+        strokeWidth="3"
+        strokeDasharray="10"
+      >
+        <animate
+          attributeName="stroke-dashoffset"
+          from="100"
+          to="0"
+          dur="2.5s"
+          repeatCount="indefinite"
+        />
+      </line>
+
+      {/* CONNECTION 3 */}
+      <line
+        x1="250"
+        y1="170"
+        x2="150"
+        y2="280"
+        stroke="#3b82f6"
+        strokeWidth="3"
+        strokeDasharray="10"
+      >
+        <animate
+          attributeName="stroke-dashoffset"
+          from="100"
+          to="0"
+          dur="3s"
+          repeatCount="indefinite"
+        />
+      </line>
+
+      {/* CONNECTION 4 */}
+      <line
+        x1="250"
+        y1="170"
+        x2="350"
+        y2="280"
+        stroke="#3b82f6"
+        strokeWidth="3"
+        strokeDasharray="10"
+      >
+        <animate
+          attributeName="stroke-dashoffset"
+          from="100"
+          to="0"
+          dur="2.2s"
+          repeatCount="indefinite"
+        />
+      </line>
+
+      {/* DOTTED RELATION */}
+      <line
+        x1="150"
+        y1="80"
+        x2="350"
+        y2="80"
+        stroke="#94a3b8"
+        strokeWidth="2"
+        strokeDasharray="6"
+      />
+
+      {/* USER */}
+      <circle
+        cx="150"
+        cy="80"
+        r="28"
+        fill="#22c55e"
+        filter="url(#glow)"
+      />
+
+      <text
+        x="150"
+        y="85"
+        textAnchor="middle"
+        fill="white"
+        fontSize="14"
+        fontWeight="600"
+      >
+        User
+      </text>
+
+      {/* MERCHANT */}
+      <circle
+        cx="350"
+        cy="80"
+        r="28"
+        fill="#a855f7"
+        filter="url(#glow)"
+      />
+
+      <text
+        x="350"
+        y="85"
+        textAnchor="middle"
+        fill="white"
+        fontSize="12"
+        fontWeight="600"
+      >
+        Shop
+      </text>
+
+      {/* CENTRAL TRANSACTION NODE */}
+      <circle
+        cx="250"
+        cy="170"
+        r="40"
+        fill="#3b82f6"
+        filter="url(#glow)"
+      >
+        <animate
+          attributeName="r"
+          values="40;45;40"
+          dur="2s"
+          repeatCount="indefinite"
+        />
+      </circle>
+
+      <text
+        x="250"
+        y="175"
+        textAnchor="middle"
+        fill="white"
+        fontSize="14"
+        fontWeight="700"
+      >
+        Txn
+      </text>
+
+      {/* DEVICE */}
+      <circle
+        cx="150"
+        cy="280"
+        r="28"
+        fill="#f59e0b"
+        filter="url(#glow)"
+      />
+
+      <text
+        x="150"
+        y="285"
+        textAnchor="middle"
+        fill="white"
+        fontSize="12"
+        fontWeight="600"
+      >
+        Device
+      </text>
+
+      {/* LOCATION */}
+      <circle
+        cx="350"
+        cy="280"
+        r="28"
+        fill="#ef4444"
+        filter="url(#glow)"
+      />
+
+      <text
+        x="350"
+        y="285"
+        textAnchor="middle"
+        fill="white"
+        fontSize="12"
+        fontWeight="600"
+      >
+        Geo
+      </text>
+
+      {/* FRAUD RING */}
+      <circle
+        cx="250"
+        cy="170"
+        r="58"
+        fill="none"
+        stroke="#ef4444"
+        strokeWidth="4"
+        strokeDasharray="10"
+      >
+        <animate
+          attributeName="r"
+          values="58;65;58"
+          dur="2s"
+          repeatCount="indefinite"
+        />
+
+        <animate
+          attributeName="opacity"
+          values="1;0.4;1"
+          dur="2s"
+          repeatCount="indefinite"
+        />
+      </circle>
+
+    </svg>
+
+    {/* LEGEND */}
+    <div className="grid grid-cols-2 gap-3 mt-4 text-sm">
+
+      <div className="flex items-center gap-2">
+        <div className="w-3 h-3 rounded-full bg-green-500"></div>
+        User
+      </div>
+
+      <div className="flex items-center gap-2">
+        <div className="w-3 h-3 rounded-full bg-purple-500"></div>
+        Merchant
+      </div>
+
+      <div className="flex items-center gap-2">
+        <div className="w-3 h-3 rounded-full bg-orange-500"></div>
+        Device
+      </div>
+
+      <div className="flex items-center gap-2">
+        <div className="w-3 h-3 rounded-full bg-red-500"></div>
+        Location
+      </div>
 
     </div>
 
   </div>
+
+</div>
+
+  </div>
+
+</section>
+
+      {/* WHY FINGUARD */}
+<section id="features" className="py-24 px-6">
+
+  <h2 className="text-4xl font-bold text-center mb-4">
+    Why FinGuard?
+  </h2>
+
+  <p className="text-center text-gray-500 mb-14 max-w-2xl mx-auto">
+    Advanced fraud detection powered by Graph Neural Networks,
+    real-time analytics, and intelligent risk assessment.
+  </p>
+
+  <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
+
+    {/* CARD 1 */}
+    <div className="
+      bg-white
+      dark:bg-slate-800
+      rounded-2xl
+      p-8
+      shadow-lg
+      hover:-translate-y-2
+      hover:shadow-[0_0_25px_#3b82f6]
+      transition-all
+    ">
+
+      <div className="text-5xl mb-4">
+        ⚡
+      </div>
+
+      <h3 className="text-2xl font-bold mb-3">
+        Real-Time Detection
+      </h3>
+
+      <p className="text-gray-500">
+        Analyze transactions instantly and identify suspicious
+        activity before financial damage occurs.
+      </p>
+
+    </div>
+
+    {/* CARD 2 */}
+    <div className="
+      bg-white
+      dark:bg-slate-800
+      rounded-2xl
+      p-8
+      shadow-lg
+      hover:-translate-y-2
+      hover:shadow-[0_0_25px_#3b82f6]
+      transition-all
+    ">
+
+      <div className="text-5xl mb-4">
+        🕸️
+      </div>
+
+      <h3 className="text-2xl font-bold mb-3">
+        Graph Intelligence
+      </h3>
+
+      <p className="text-gray-500">
+        Discover hidden relationships between users,
+        merchants, devices and locations.
+      </p>
+
+    </div>
+
+    {/* CARD 3 */}
+    <div className="
+      bg-white
+      dark:bg-slate-800
+      rounded-2xl
+      p-8
+      shadow-lg
+      hover:-translate-y-2
+      hover:shadow-[0_0_25px_#3b82f6]
+      transition-all
+    ">
+
+      <div className="text-5xl mb-4">
+        🧠
+      </div>
+
+      <h3 className="text-2xl font-bold mb-3">
+        AI-Powered Analysis
+      </h3>
+
+      <p className="text-gray-500">
+        Graph Neural Networks learn complex fraud patterns
+        that traditional systems often miss.
+      </p>
+
+    </div>
+
+    {/* CARD 4 */}
+    <div className="
+      bg-white
+      dark:bg-slate-800
+      rounded-2xl
+      p-8
+      shadow-lg
+      hover:-translate-y-2
+      hover:shadow-[0_0_25px_#3b82f6]
+      transition-all
+    ">
+
+      <div className="text-5xl mb-4">
+        📊
+      </div>
+
+      <h3 className="text-2xl font-bold mb-3">
+        Actionable Insights
+      </h3>
+
+      <p className="text-gray-500">
+        Visualize fraud trends, risk scores and alerts
+        through an intuitive analytics dashboard.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+      {/* TECH SPECS */}
+       {/* FRAUD DETECTION PIPELINE */}
+<section className="py-24 px-6">
+
+  <h2 className="text-4xl font-bold text-center mb-4">
+    Fraud Detection Pipeline
+  </h2>
+
+  <p className="text-center text-gray-500 mb-16">
+    End-to-end workflow used to identify suspicious financial transactions
+  </p>
+
+  <div className="max-w-6xl mx-auto">
+
+    {/* TOP ROW */}
+    <div className="grid md:grid-cols-3 gap-20 items-center">
+
+      {/* Upload Data */}
+      <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-lg text-center relative hover:-translate-y-2 transition-all">
+
+        <div className="text-5xl mb-4">📁</div>
+
+        <h3 className="text-xl font-bold mb-2">
+          Upload Data
+        </h3>
+
+        <p className="text-sm text-gray-500">
+          CSV transaction records are uploaded
+        </p>
+
+        {/* Arrow */}
+        <div className="hidden md:flex absolute -right-16 top-1/2 -translate-y-1/2 items-center">
+          <div className="w-12 h-1 bg-blue-500"></div>
+          <div className="w-0 h-0 border-t-[8px] border-b-[8px] border-l-[12px] border-t-transparent border-b-transparent border-l-blue-500"></div>
+        </div>
+
+      </div>
+
+      {/* Build Graph */}
+      <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-lg text-center relative hover:-translate-y-2 transition-all">
+
+        <div className="text-5xl mb-4">🕸️</div>
+
+        <h3 className="text-xl font-bold mb-2">
+          Build Graph
+        </h3>
+
+        <p className="text-sm text-gray-500">
+          Users, merchants and devices become graph nodes
+        </p>
+
+        {/* Arrow */}
+        <div className="hidden md:flex absolute -right-16 top-1/2 -translate-y-1/2 items-center">
+          <div className="w-12 h-1 bg-blue-500"></div>
+          <div className="w-0 h-0 border-t-[8px] border-b-[8px] border-l-[12px] border-t-transparent border-b-transparent border-l-blue-500"></div>
+        </div>
+
+      </div>
+
+      {/* Graph Learning */}
+      <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-lg text-center hover:-translate-y-2 transition-all">
+
+        <div className="text-5xl mb-4">🧠</div>
+
+        <h3 className="text-xl font-bold mb-2">
+          Graph Learning
+        </h3>
+
+        <p className="text-sm text-gray-500">
+          GNN extracts hidden fraud patterns
+        </p>
+
+      </div>
+
+    </div>
+
+    {/* VERTICAL ARROW */}
+    <div className="flex justify-center my-12">
+
+      <div className="flex flex-col items-center">
+
+        <div className="w-1 h-16 bg-blue-500"></div>
+
+        <div className="
+          w-0
+          h-0
+          border-l-[12px]
+          border-r-[12px]
+          border-t-[16px]
+          border-l-transparent
+          border-r-transparent
+          border-t-blue-500
+        "></div>
+
+      </div>
+
+    </div>
+
+    {/* BOTTOM ROW */}
+    <div className="grid md:grid-cols-3 gap-20 items-center">
+
+      {/* Feature Fusion */}
+      <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-lg text-center relative hover:-translate-y-2 transition-all">
+
+        <div className="text-5xl mb-4">⚡</div>
+
+        <h3 className="text-xl font-bold mb-2">
+          Feature Fusion
+        </h3>
+
+        <p className="text-sm text-gray-500">
+          Local and global information are combined
+        </p>
+
+        {/* Arrow */}
+        <div className="hidden md:flex absolute -right-16 top-1/2 -translate-y-1/2 items-center">
+          <div className="w-12 h-1 bg-blue-500"></div>
+          <div className="w-0 h-0 border-t-[8px] border-b-[8px] border-l-[12px] border-t-transparent border-b-transparent border-l-blue-500"></div>
+        </div>
+
+      </div>
+
+      {/* Fraud Detection */}
+      <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-lg text-center relative hover:-translate-y-2 transition-all">
+
+        <div className="text-5xl mb-4">🚨</div>
+
+        <h3 className="text-xl font-bold mb-2">
+          Fraud Detection
+        </h3>
+
+        <p className="text-sm text-gray-500">
+          Suspicious transactions are identified
+        </p>
+
+        {/* Arrow */}
+        <div className="hidden md:flex absolute -right-16 top-1/2 -translate-y-1/2 items-center">
+          <div className="w-12 h-1 bg-blue-500"></div>
+          <div className="w-0 h-0 border-t-[8px] border-b-[8px] border-l-[12px] border-t-transparent border-b-transparent border-l-blue-500"></div>
+        </div>
+
+      </div>
+
+      {/* Analytics */}
+      <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-lg text-center hover:-translate-y-2 transition-all">
+
+        <div className="text-5xl mb-4">📊</div>
+
+        <h3 className="text-xl font-bold mb-2">
+          Analytics
+        </h3>
+
+        <p className="text-sm text-gray-500">
+          Results and alerts are visualized
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
 </section>
 
       {/* DEMO */}
