@@ -23,8 +23,14 @@ export default function Signup() {
         navigate("/login");
       }
     } catch (err) {
-      alert("Signup failed");
-    }
+  console.error(err);
+
+  alert(
+    err.response?.data?.message ||
+    err.message ||
+    "Signup failed"
+  );
+}
   };
 
   return (

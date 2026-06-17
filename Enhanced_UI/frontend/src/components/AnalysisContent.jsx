@@ -14,8 +14,8 @@ export default function AnalysisContent({ transaction }) {
 
         <p className="text-gray-500 dark:text-gray-400">
 
-          Select a fraudulent transaction from the Fraud Table
-          to view detailed analysis.
+          Select a transaction from the Transactions Table
+          to view detailed fraud analysis.
 
         </p>
 
@@ -67,7 +67,27 @@ export default function AnalysisContent({ transaction }) {
   }
 
   /* ==========================================
-      AI INSIGHTS
+      PREDICTION
+  ========================================== */
+
+  const predictionText =
+
+    transaction.prediction === 1
+
+      ? "Fraudulent Transaction"
+
+      : "Safe Transaction";
+
+  const predictionColor =
+
+    transaction.prediction === 1
+
+      ? "text-red-500"
+
+      : "text-green-500";
+
+  /* ==========================================
+      INSIGHTS
   ========================================== */
 
   const insights = [];
@@ -75,48 +95,54 @@ export default function AnalysisContent({ transaction }) {
   if (probability >= 85) {
 
     insights.push(
-
-      "Transaction exhibits strong fraudulent characteristics."
+      "Extremely high fraud probability detected."
     );
   }
 
-  if (
-
-    transaction.amt ||
-
-    transaction.amount
-  ) {
+  else if (probability >= 60) {
 
     insights.push(
-
-      `Transaction amount detected: ₹${
-        transaction.amt ||
-
-        transaction.amount
-      }.`
+      "Transaction requires additional verification."
     );
   }
 
-  if (
-
-    transaction.merchant ||
-
-    transaction.merch
-  ) {
+  else {
 
     insights.push(
+      "Transaction behavior appears normal."
+    );
+  }
 
-      `Merchant involved: ${
-        transaction.merchant ||
+  if (transaction.amt) {
 
-        transaction.merch
-      }.`
+    insights.push(
+      `Transaction amount: ₹${transaction.amt}.`
+    );
+  }
+
+  if (transaction.merchant) {
+
+    insights.push(
+      `Merchant involved: ${transaction.merchant}.`
+    );
+  }
+
+  if (transaction.category) {
+
+    insights.push(
+      `Merchant category: ${transaction.category}.`
+    );
+  }
+
+  if (transaction.txn_during_night === 1) {
+
+    insights.push(
+      "Transaction occurred during night hours."
     );
   }
 
   insights.push(
-
-    `Risk classification assigned as ${riskLevel} risk.`
+    `Risk classification assigned as ${riskLevel} Risk.`
   );
 
   return (
@@ -135,13 +161,13 @@ export default function AnalysisContent({ transaction }) {
 
         <p className="text-gray-500 dark:text-gray-400">
 
-          Detailed explanation of the selected fraudulent transaction.
+          Detailed AI-powered fraud assessment of the selected transaction.
 
         </p>
 
       </div>
 
-      {/* METER + RISK */}
+      {/* METER + SUMMARY */}
 
       <div className="grid lg:grid-cols-2 gap-8 mb-10">
 
@@ -158,7 +184,7 @@ export default function AnalysisContent({ transaction }) {
           <div className="flex justify-center">
 
             <div
-              className="relative w-52 h-52 rounded-full flex items-center justify-center"
+              className="relative w-56 h-56 rounded-full flex items-center justify-center"
               style={{
                 background: `conic-gradient(
                   ${meterColor} ${probability * 3.6}deg,
@@ -168,8 +194,8 @@ export default function AnalysisContent({ transaction }) {
             >
 
               <div className="
-                w-40
-                h-40
+                w-44
+                h-44
                 rounded-full
                 bg-white
                 dark:bg-slate-900
@@ -254,9 +280,9 @@ export default function AnalysisContent({ transaction }) {
 
               </p>
 
-              <p className="font-bold text-2xl text-red-500">
+              <p className={`font-bold text-2xl ${predictionColor}`}>
 
-                Fraudulent Transaction
+                {predictionText}
 
               </p>
 
@@ -290,14 +316,7 @@ export default function AnalysisContent({ transaction }) {
 
             <p className="font-semibold">
 
-              {
-
-                transaction.trans_num ||
-
-                transaction.transaction_id ||
-
-                "N/A"
-              }
+              {transaction.trans_num || "N/A"}
 
             </p>
 
@@ -313,37 +332,7 @@ export default function AnalysisContent({ transaction }) {
 
             <p className="font-semibold">
 
-              {
-
-                transaction.merchant ||
-
-                transaction.merch ||
-
-                "N/A"
-              }
-
-            </p>
-
-          </div>
-
-          <div>
-
-            <p className="text-gray-500 text-sm">
-
-              Amount
-
-            </p>
-
-            <p className="font-semibold">
-
-              ₹{
-
-                transaction.amt ||
-
-                transaction.amount ||
-
-                "N/A"
-              }
+              {transaction.merchant || "N/A"}
 
             </p>
 
@@ -359,12 +348,23 @@ export default function AnalysisContent({ transaction }) {
 
             <p className="font-semibold">
 
-              {
+              {transaction.category || "N/A"}
 
-                transaction.category ||
+            </p>
 
-                "N/A"
-              }
+          </div>
+
+          <div>
+
+            <p className="text-gray-500 text-sm">
+
+              Amount
+
+            </p>
+
+            <p className="font-semibold">
+
+              ₹{transaction.amt || "N/A"}
 
             </p>
 
@@ -380,12 +380,7 @@ export default function AnalysisContent({ transaction }) {
 
             <p className="font-semibold">
 
-              {
-
-                transaction.city ||
-
-                "N/A"
-              }
+              {transaction.city || "N/A"}
 
             </p>
 
@@ -401,12 +396,47 @@ export default function AnalysisContent({ transaction }) {
 
             <p className="font-semibold">
 
-              {
+              {transaction.state || "N/A"}
 
-                transaction.state ||
+            </p>
 
-                "N/A"
-              }
+          </div>
+
+          <div>
+
+            <p className="text-gray-500 text-sm">
+
+              Transaction Hour
+
+            </p>
+
+            <p className="font-semibold">
+
+              {transaction.hour ?? "N/A"}
+
+            </p>
+
+          </div>
+
+          <div>
+
+            <p className="text-gray-500 text-sm">
+
+              Night Transaction
+
+            </p>
+
+            <p
+              className={`font-semibold ${
+                transaction.txn_during_night
+                  ? "text-red-500"
+                  : "text-green-500"
+              }`}
+            >
+
+              {transaction.txn_during_night
+                ? "Yes"
+                : "No"}
 
             </p>
 
@@ -434,13 +464,17 @@ export default function AnalysisContent({ transaction }) {
 
               key={index}
 
-              className="
+              className={`
                 p-4
                 rounded-xl
-                bg-red-500/5
                 border-l-4
-                border-red-500
-              "
+
+                ${
+                  transaction.prediction === 1
+                    ? "bg-red-500/5 border-red-500"
+                    : "bg-green-500/5 border-green-500"
+                }
+              `}
             >
 
               {insight}
