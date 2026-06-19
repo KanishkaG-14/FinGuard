@@ -1,4 +1,6 @@
 import { useState } from "react";
+import axios from "axios";
+
 import {
   UploadCloud,
   FileText,
@@ -17,97 +19,49 @@ export default function UploadContent({
     setFile(e.target.files[0]);
   };
 
-  const handleUpload = () => {
-    if (!file) {
-      alert("Please select a CSV file");
+const handleUpload = async () => {
+
+  if (!file) {
+    alert("Please select a CSV file");
+    return;
+  }
+
+  try {
+
+    const formData = new FormData();
+
+    formData.append("file", file);
+
+    const response = await fetch(
+      "http://127.0.0.1:8000/predict",
+      {
+        method: "POST",
+        body: formData,
+      }
+    );
+
+    const data = await response.json();
+
+    if (data.error) {
+      alert(data.error);
       return;
     }
 
-    console.log("Uploading:", file);
+    setSummary(data.summary);
 
-    const mockSummary = {
-      total_transactions: 1000,
-      fraud_transactions: 47,
-      normal_transactions: 953,
-      night_transactions: 143,
-      high_risk_transactions: 47,
-    };
+    setTransactions(data.transactions);
 
-    const mockTransactions = [
-      {
-        trans_num: "TXN001",
-        merchant: "Amazon",
-        category: "shopping_net",
-        city: "Hyderabad",
-        state: "Telangana",
-        hour: 2,
-        txn_during_night: 1,
-        amt: 1200,
-        fraud_probability: 92,
-        prediction: 1,
-      },
-
-      {
-        trans_num: "TXN002",
-        merchant: "Flipkart",
-        category: "shopping_net",
-        city: "Mumbai",
-        state: "Maharashtra",
-        hour: 23,
-        txn_during_night: 1,
-        amt: 860,
-        fraud_probability: 84,
-        prediction: 1,
-      },
-
-      {
-        trans_num: "TXN003",
-        merchant: "Myntra",
-        category: "shopping_pos",
-        city: "Bangalore",
-        state: "Karnataka",
-        hour: 15,
-        txn_during_night: 0,
-        amt: 1450,
-        fraud_probability: 97,
-        prediction: 1,
-      },
-
-      {
-        trans_num: "TXN004",
-        merchant: "Swiggy",
-        category: "food_dining",
-        city: "Chennai",
-        state: "Tamil Nadu",
-        hour: 19,
-        txn_during_night: 0,
-        amt: 550,
-        fraud_probability: 12,
-        prediction: 0,
-      },
-
-      {
-        trans_num: "TXN005",
-        merchant: "Netflix",
-        category: "entertainment",
-        city: "Delhi",
-        state: "Delhi",
-        hour: 21,
-        txn_during_night: 0,
-        amt: 799,
-        fraud_probability: 18,
-        prediction: 0,
-      },
-    ];
-
-    setSummary(mockSummary);
-    setTransactions(mockTransactions);
-
-    alert("Mock analysis completed successfully.");
+    alert("Analysis Completed Successfully");
 
     setActive("summary");
-  };
 
+  } catch (error) {
+
+    console.error(error);
+
+    alert("Failed to connect backend");
+  }
+};
   return (
     <div className="p-10">
       {/* HEADER */}
